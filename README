@@ -1,0 +1,105 @@
+  _  _               _                           ___ _         _      _         _    \\
+ | || |___ _ __  ___| |__ _ _ _____ __ __  ___  | _ ) |__ _ __| |___ | |__ _ __| |__ \\
+ | __ / _ \ '  \/ -_) '_ \ '_/ -_) V  V / |___| | _ \ / _` / _| / / || / _` / _| / / \\
+ |_||_\___/_|_|_\___|_.__/_| \___|\_/\_/        |___/_\__,_\__|_\_\\__/\__,_\__|_\_\ \\
+-------------------------------------------------------------------------------------\\
+
+PROJECT TITLE: BlackJack
+PURPOSE OF PROJECT: To create a functioning game of BlackJack and learn from it
+                    *With all the small details like:* 
+                    -Splitting 
+                    -Insurance 
+                    -Aces counting as 1 and 11 //DONE//
+                    +Being able to select modes from a Home Screen 
+                    +An AI dealer //DONE//
+                    +Two Player Mode
+AUTHOR: Angelo S. Arriaga
+USER INSTRUCTIONS: For BlueJ
+    1)Right-click on "Main"
+    2)Click on "void Main(String[] args)"
+    3)Enter "{}" into the Pop-up and hit "Ok"
+    
+    
+Version History:
+
+2017-03-14 -- Tuesday
+    *Project Created
+    *Created the Card Class
+        + Enumerations made to hold Suit and Rank values
+        + Made an easy way to create Card Objects
+        + Created Functions to easily call the card's Suit (String), Rank (String), and Value (int)
+    *Demonstrated basic functionality of Card Class with the information functions
+        
+2017-03-18 -- Saturday
+    *Created an Array named "truedeck" that will be used to create shuffled decks from
+    *Demonstrated that the "truedeck" is a brand-new deck of cards (No duplicates, 13 of each suit, etc)
+    *Created the method which shuffles "truedeck" into a "gamedeck" to be used AND IT FREAKING WORKED
+
+2017-03-25 -- Saturday
+    *Attempted to allow for user input using a Scanner to start the tests manually 
+           -"userinput.NextLine()" did some stupid ass shit, Long story short, I failed
+                It did stupid shit like like:
+                    "Type 'test' and hit enter to test gamedeck: "
+                    *types in 'test'*
+                    "Test fail, received 'test' instead of 'test'"
+                    *facepalm*
+                Changed it to "userinput.Next()" didn't help
+                
+2017-03-31 -- Friday
+    *Figured out what was wrong with the userinput thing (Needed to use ".equals()", I'm dumb)
+    *On deck playback I added 1 to each number so it'd be from 1-52 instead of 0-51
+
+2017-04-01 -- Saturday
+    *Looked up tutorials on how to create custom windows, pasted some example code into the end of 
+     the program, it worked.
+    *Commented out the above and moved all GUI efforts into a different class ("TestGUI") to be more 
+     organized and practical, the Main Class was getting too cluttered
+    *Added comments in the Card class as well as the Rank and Suit enums to explain more about the 
+     methods and what they do
+     
+2017-04-08 -- Saturday
+    *Moved some code in the truedeck constructor so it doesn't run an unneccessary amount of times,
+     it probably wasn't a big deal but I want this program to be as efficient and well-written as 
+     possible, Ignore the Main method for now, that's a wasteland of test code, I'm going to scrap 
+     it entirely when I get dealing and drawing and all that done.
+
+2017-04-09 -- Sunday
+    *Converted the gamedeck to a List instead of an array so it can have cards taken out of it
+    *Moved a lot of functions that were related to deck manipulation to the "Card" class to be 
+     more organized and just logical. (The program won't work now so I'm going to have to fix it)
+    *Added the draw functions: "drawFirst()", "drawLast()", and "drawMid()".
+
+2017-04-10 -- Monday
+    *Ironed out the problems from yesterday
+    *Made a lot of void functions actually return values so they would be more versatile
+    *Made a List to serve as a hand, was able to draw cards and total up the value
+        -Need to figure out a good way to make Aces count as a 1 AND 11
+        
+2017-04-11 -- Tuesday
+    *Found a workaround for the "Ace being worth both a 1 and 11" problem
+        -basically just set Aces to always be worth 11 in the "getValue()" method but in the 
+        "totalHand()" function I made it subtract 10 from the total (to simulate an 11 turning 
+        into a 1) until either all aces have been already made worth 1 or the total is finally 
+        under 21
+    *Finished more functions: "checkBust()", "checkNatural21()", "hit()", "readUserHand()", 
+     "readOpponentHand()",  and "totalHand()"
+    *Created the basic loop that controls the game, you are now able to draw to your heart's 
+     content, stand when you want to, bust when you go over 21, and win/lose against a dealer 
+     who actually has a *very* basic AI
+     
+2017-04-12 -- Wednesday  (Written 4/22)
+    *Attempted to use SimpleGUIBuilder to build the GUI and it was going well, until I tried to use 
+     the buttons, they're completely broken for some reason, you can't move them and they fuck over 
+     the whole layout. I reasoned that it was because it was outdated so I searched for another tool 
+     to use and found something similar on Eclipse. Thus I've started to try and moved this project 
+     over in it's entirety. 
+     I rather like BlueJ, it's been helpful but I want to use the tools Eclipse has. The 
+     project is now actually playable (The only things missing being a GUI, menu, and two-player mode)
+     so I think it's a success. I'm going to take a break and try coding something else, I'll come 
+     back to this another day when I'm more experienced with UIs
+     
+ 2017-04-24/25 -- Monday/Tuesday
+ 	*Moved over a lot of classes in packages so the project is neat and I can reuse portions easily
+ 		-I might be able to reuse that "playingCards" package in making Caravan, so this is actually 
+ 		 pretty useful
+ 	*Moved a lot of code into their own functions so I can demonstrate the program easier
